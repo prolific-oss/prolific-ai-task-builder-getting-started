@@ -1,4 +1,4 @@
-name: rise_slides
+name: prolific-ai-task-builder
 channels:
   - conda-forge
   - defaults
