@@ -1,0 +1,49 @@
+# Prolific study configuration
+prolific:
+  batch_name: "Pairwise Comparison Batch"
+
+  task_schema:
+    # human-facing fields
+    task_name: "Compare two AI-generated responses"
+  
+    task_introduction: |
+      <p>You will see a short prompt (a user question) and two possible AI assistant responses (“Response A” and “Response B”).</p>
+      <p>Your job is to choose which response you would prefer to receive from an assistant.</p>
+
+    task_steps: |
+      <p>Please consider:</p>
+      <ul>
+      <li>Accuracy and correctness</li>
+      <li>Helpfulness and completeness</li>
+      <li>Clarity and organization</li>
+      <li>Safety and appropriateness</li>
+      </ul>
+      <p>Pick the response that feels overall better, even if both are imperfect.</p>
+
+    task_question: "Pick the response that feels overall better, even if both are imperfect."
+
+    tasks_per_group: 10 # how many comparisons each participant will do per assignment
+
+  study_setup:
+    internal_name: "Pairwise Comparison"
+
+    data_collection_method: "AI_TASK_BUILDER_BATCH" # "DC_TOOL" 
+
+    # Study settings
+    estimated_completion_time: 5 # minutes per participant
+    max_time: 15 # minutes per participant
+    reward: 200 # payout per participant (in cents in the currency of your account)
+    device_compatibility:
+      - "desktop"
+    participants_per_task: 5
+    
+    # Eligibility
+    filters:
+        age:
+            lower: 18
+            upper: 70
+        current_country_of_residence_choice_ids: ["1", "0"]  # "1" = US, "0" = UK
+        
+    labels:
+        - "ai_evaluation"
+        
